@@ -54,6 +54,7 @@ The project can be enjoyed in your browser, terminal, and Postman.
 ## Architecture
 
 The app is written in
-Smart contracts: [Solidity](https://soliditylang.org) and [Hardhat](https://hardhat.org/)
-Backend: [NestJS](https://nestjs.com/)
-UI: [React](https://reactjs.org/) and [NextJS](https://nextjs.org/).
+
+- Smart contracts: [Solidity](https://soliditylang.org) and [Hardhat](https://hardhat.org/)
+- Backend: [NestJS](https://nestjs.com/)
+- UI: [React](https://reactjs.org/) and [NextJS](https://nextjs.org/).
