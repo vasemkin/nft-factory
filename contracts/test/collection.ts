@@ -33,9 +33,14 @@ describe("Collection tests", function () {
         it("Works for a stranger wallet", async () => {
             const { tester, deployer } = await getNamedAccounts();
             const signer = await ethers.getSigner(tester);
-            await expect(collection.connect(signer).safeMint(tester, mockUri)).not.to.be.reverted;
-            const tokenId = ethers.BigNumber.from("2");
-            expect(await collection.connect(signer).safeMint(deployer, mockUri))
+            const contractFactory: Collection__factory = await ethers.getContractFactory("Collection");
+            const contractFactoryStranger = contractFactory.connect(signer);
+            const collec = (await contractFactoryStranger.deploy(...mockArgs)) as Collection;
+            await collec.deployed();
+            const collectionStranger = collec.connect(signer);
+            await expect(collectionStranger.safeMint(tester, mockUri)).not.to.be.reverted;
+            const tokenId = ethers.BigNumber.from("0");
+            expect(await collection.safeMint(deployer, mockUri))
                 .to.emit(collection, "TokenMinted")
                 .withArgs(collection.address, deployer, tokenId, mockUri);
         });

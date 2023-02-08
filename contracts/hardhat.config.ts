@@ -52,7 +52,7 @@ const config: HardhatUserConfig = {
     solidity: "0.8.9",
     namedAccounts: {
         deployer: process.env["DEPLOYER_ADDRESS"] || "",
-        tester: process.env["DEPLOYER_ADDRESS"] || "",
+        tester: process.env["TESTER_ADDRESS"] || "",
     },
     networks: {
         hardhat: {
